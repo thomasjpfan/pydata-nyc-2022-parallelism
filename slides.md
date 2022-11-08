@@ -431,7 +431,7 @@ class: top
 .g.g-middle[
 .g-8[
 ## Configuration
-- Environment variable: `NUMBA_THREADING_LAYER`
+- Environment variable: `NUMBA_NUM_THREADS`
 - Python API: `numba.set_num_threads`
 ]
 .g-4[
