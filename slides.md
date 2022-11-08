@@ -11,7 +11,7 @@ class: title-slide
 <a href="https://www.github.com/thomasjpfan" target="_blank"><span class="icon icon-github icon-left"></span></a>
 <a href="https://www.twitter.com/thomasjpfan" target="_blank"><span class="icon icon-twitter"></span></a>
 
-![:scale 30%](images/labs-logo.jpg)
+![:scale 25%](images/labs-logo.jpg)
 
 <a class="this-talk-link", href="https://github.com/thomasjpfan/pydata-nyc-2022-parallelism" target="_blank">
 This talk on Github: thomasjpfan/pydata-nyc-2022-parallelism</a>
@@ -825,7 +825,7 @@ class: center
 <a href="https://www.github.com/thomasjpfan" target="_blank"><span class="icon icon-github icon-left"></span></a>
 <a href="https://www.twitter.com/thomasjpfan" target="_blank"><span class="icon icon-twitter"></span></a>
 
-![:scale 30%](images/labs-logo.jpg)
+![:scale 25%](images/labs-logo.jpg)
 
 <a class="this-talk-link", href="https://github.com/thomasjpfan/pydata-nyc-2022-parallelism" target="_blank">
 This talk on Github: thomasjpfan/pydata-nyc-2022-parallelism</a>
