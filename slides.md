@@ -629,9 +629,16 @@ class: top
 ---
 
 # Scikit-learn Avoiding Oversubscription  🖥
+
+.g.g-middle[
+.g-8[
 - Automatically configures native threads to **`cpu_count() // n_jobs`**
 - Learn more in [joblib's docs](https://joblib.readthedocs.io/en/latest/parallel.html#avoiding-over-subscription-of-cpu-resources)
-
+]
+.g-4[
+![](images/joblib_logo.svg)
+]
+]
 ---
 
 # Scikit-learn Avoiding Oversubscription Example
