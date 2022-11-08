@@ -420,6 +420,8 @@ class: chapter-slide
 
 ![](images/umap.png)
 
+[Source](https://umap-learn.readthedocs.io/en/latest/index.html)
+
 ---
 
 class: top
