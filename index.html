@@ -795,9 +795,8 @@ python run_computation.py
 ```
  -->
 
-# Need to be careful using more than one parallel API
-
-## Native libraries
+# Using multiple APIs?
+## Native thread libraries 🧵
 - OpenBLAS (built with `pthreads`) and code with `OpenMP`
 - Poor interactions between `OpenMP` with different compilers
 - Two OpenBLAS present (`NumPy` and `SciPy` on `PyPI`)
@@ -806,7 +805,8 @@ python run_computation.py
 
 ---
 
-# Using more than one parallel backends 🤯
+# Using multiple APIs?
+## Using more than one parallel backends 🤯
 
 ![](images/combining-native+multi.jpg)
 
