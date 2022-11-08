@@ -378,7 +378,7 @@ Config with the `workers` parameter
 
 # Why `pthreads` and not `OpenMP`? 🧵
 
-- Does not play well with `multiprocessing` (fork)
+- Some run-times do not work well with `multiprocessing`
 - Issues when using multiple OpenMP run-times
 
 [Source](https://github.com/scipy/scipy/issues/10239#issuecomment-795030817)
