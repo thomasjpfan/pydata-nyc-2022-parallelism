@@ -380,7 +380,7 @@ Config with the `workers` parameter
 - GNU OpenMP runtime library **does not work well** with `multiprocessing`
 - Some OpenMP runtime libraries are **not compatible** with each other
 
-Read more [in SciPy](https://github.com/scipy/scipy/issues/10239#issuecomment-795030817) and [this design doc](https://thomasjpfan.github.io/parallelism-python-libraries-design/#interactions-between-different-forms-of-parallelism).
+Read more [in this SciPy issue](https://github.com/scipy/scipy/issues/10239#issuecomment-795030817).
 
 ---
 
