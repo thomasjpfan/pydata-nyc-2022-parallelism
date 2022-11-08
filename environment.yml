@@ -1,0 +1,13 @@
+name: pydata-nyc-2022-parallelism
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - numpy
+  - scikit-learn
+  - scipy
+  - openssl
+  - pytorch
+  - numba
+  - pandas
