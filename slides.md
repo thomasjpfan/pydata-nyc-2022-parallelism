@@ -378,10 +378,10 @@ Config with the `workers` parameter
 
 # Why `pthreads` and not `OpenMP`? 🧵
 
-- Some run-times do not work well with `multiprocessing`
-- Issues when using multiple OpenMP run-times
+- GNU OpenMP runtime library **does not work well** with `multiprocessing`
+- Some OpenMP runtime libraries are **not compatible** with each other
 
-[Source](https://github.com/scipy/scipy/issues/10239#issuecomment-795030817)
+Read more [in SciPy](https://github.com/scipy/scipy/issues/10239#issuecomment-795030817) and [this design doc](https://thomasjpfan.github.io/parallelism-python-libraries-design/#interactions-between-different-forms-of-parallelism).
 
 ---
 
