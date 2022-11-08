@@ -565,7 +565,7 @@ class: top, top-5
 from sklearn.experimental import enable_halving_search_cv # noqa
 from sklearn.model_selection import HalvingRandomSearchCV
 
-halving = HalvingGridSearchCV(..., n_jobs=4)
+*halving = HalvingGridSearchCV(..., n_jobs=4)
 ```
 
 ---
