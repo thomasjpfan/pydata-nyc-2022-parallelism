@@ -186,9 +186,9 @@ conda install "libblas=*=*netlib"
 
 # Controlling Parallelism with environment variables
 
-- `OMP_NUM_THREADS` (OpenMP)
-- `MKL_NUM_THREADS` (Intel's MKL)
 - `OPENBLAS_NUM_THREADS` (With `pthreads`)
+- `MKL_NUM_THREADS` (Intel's MKL)
+- `OMP_NUM_THREADS` (OpenMP)
 - `BLIS_NUM_THREADS`
 
 ---
@@ -245,6 +245,7 @@ class: chapter-slide
 .g-8[
 ## Configuration
 - `OMP_NUM_THREADS` or `MKL_NUM_THREADS`
+- `threadpoolctl`
 - `torch.set_num_threads`
 ]
 .g-4[
@@ -288,7 +289,7 @@ https://docs.scipy.org/doc/scipy/reference/linalg.html
 
 ---
 
-# SciPy: Multiprocessing
+# SciPy: Multiprocessing 🚀
 
 Config with the `workers` parameter
 
@@ -307,7 +308,7 @@ Config with the `workers` parameter
 
 ---
 
-# SciPy: Multithreading
+# SciPy: Multithreading 🚀
 
 Config with the `workers` parameter
 
@@ -329,26 +330,23 @@ Config with the `workers` parameter
 class: top, top-10
 
 # Multiprocessing vs Multithreading
+
+.g[
+.g-6[
 ## Multiprocessing
-
-- Multiple subprocesses
 - Likely need to think about memory
-
---
-
 - Different [start methods](https://docs.python.org/3/library/multiprocessing.html#contexts-and-start-methods):
     - **spawn** (Default on Windows and macOS)
     - **fork** (Default on Unix)
     - **forkserver**
-
----
-
-# Multiprocessing vs Multithreading
-
+]
+.g-6[
 ## Multithreading
-- Need to think about the Global Interpreter Lock (GIL)
-- Spawning threads is faster
+- Need to think about the Global Interpreter Lock (**GIL**)
 - Shared memory
+- Spawning threads is faster
+]
+]
 
 ---
 
@@ -376,11 +374,12 @@ Config with the `workers` parameter
 
 ---
 
-# `pthreads` 🧵🧵🧵
+# Why `pthreads` and not `OpenMP`? 🧵
 
-- Native **POSIX** threads
-- Useful for CPU bound tests
-- **Release the gil** before spawning threads
+- Does not play well with `multiprocessing` (fork)
+- Issues when using multiple OpenMP run-times
+
+[Source](https://github.com/scipy/scipy/issues/10239#issuecomment-795030817)
 
 ---
 
@@ -492,7 +491,7 @@ class: top
 
 ![](images/polars.svg)
 
-- Use all cores by default
+- **Use all cores by default**
 - Uses `pthreads` with rust library: `rayon-rs/rayon`
 - Environment variable: `POLARS_MAX_THREADS`
 
@@ -514,8 +513,8 @@ class: center
 .g-8[
 - Python Multithreading
 - Python Multiprocessing (with `loky` backend)
-- OpenMP routines (All cores by default)
-- Inherits `linalg` BLAS semantics from NumPy and SciPy (All cores by default)
+- OpenMP routines (**All cores by default**)
+- Inherits `linalg` BLAS semantics from NumPy and SciPy (**All cores by default**)
 ]
 .g-4[
 ![:scale 100%](images/scikit-learn-logo-without-subtitle.svg)
@@ -552,7 +551,7 @@ class: top, top-5
 ## Python Multiprocessing
 
 - `HalvingGridSearchCV` and `HalvingRandomSearchCV`
-- `n_jobs` parameter
+- `MultiOutputClassifier`, etc
 
 --
 
@@ -604,11 +603,14 @@ class: top
 # Parallelism in scikit-learn  🖥
 ## OpenMP
 
-- **Parallel by default**
+- **All cores by default**
 
 --
 
 - `HistGradientBoostingRegressor` and `HistGradientBoostingClassifier`
+
+--
+
 - Routines that use pairwise distances reductions:
     - `metrics.pairwise_distances_argmin`
     - `manifold.TSNE`
@@ -636,8 +638,8 @@ from sklearn.experimental import enable_halving_search_cv  # noqa
 from sklearn.model_selection import HalvingGridSearchCV
 from sklearn.ensemble import HistGradientBoostingClassifier
 
-*clf = HistGradientBoostingClassifier()
-gsh = HalvingGridSearchCV(
+clf = HistGradientBoostingClassifier()
+*gsh = HalvingGridSearchCV(
     estimator=clf, param_grid=param_grid,
 *   n_jobs=n_jobs
 )
@@ -677,12 +679,6 @@ gsh.fit(X, y)
 # Timing results
 
 ![:scale 80%](images/timing-results-n_jobs_16.jpeg)
-
----
-
-# Timing results
-
-![:scale 80%](images/timing-results-n_jobs_1vs16.jpeg)
 
 ---
 
@@ -729,8 +725,9 @@ class: top
 # Configuration Options
 - Environment variables:
     - `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, etc
+- Global: `torch.set_num_threads`
 - Context manager: `threadpoolctl` (BLAS and OpenMP)
-- Library specific parameters: `n_jobs`, `worker`
+- Call-site parameters: `n_jobs`, `worker`
 ]
 .g-3[
 ![:scale 100%](images/plane.jpg)
@@ -803,7 +800,7 @@ python run_computation.py
 ![](images/combining-native+multi.jpg)
 
 Sources: [polars](https://pola-rs.github.io/polars-book/user-guide/howcani/multiprocessing.html),
-[numba](https://numba.pydata.org/numba-doc/latest/user/threading-layer.html)
+[numba](https://numba.pydata.org/numba-doc/latest/user/threading-layer.html),
 [scikit-learn](https://scikit-learn.org/stable/faq.html#why-do-i-sometime-get-a-crash-freeze-with-n-jobs-1-under-osx-or-linux),
 [pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/enhancingperf.html#caveats)
 
