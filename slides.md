@@ -11,6 +11,8 @@ class: title-slide
 <a href="https://www.github.com/thomasjpfan" target="_blank"><span class="icon icon-github icon-left"></span></a>
 <a href="https://www.twitter.com/thomasjpfan" target="_blank"><span class="icon icon-twitter"></span></a>
 
+![:scale 30%](images/labs-logo.jpg)
+
 <a class="this-talk-link", href="https://github.com/thomasjpfan/pydata-nyc-2022-parallelism" target="_blank">
 This talk on Github: thomasjpfan/pydata-nyc-2022-parallelism</a>
 
@@ -706,51 +708,6 @@ class: top
 
 ---
 
-# Overview
-.g[
-.g-6.center[
-## Configuration
-![:scale 90%](images/plane.jpg)
-]
-.g-6.center[
-## Implementation
-![:scale 90%](images/tools.jpg)
-]
-]
-
----
-
-.g[
-.g-9[
-# Configuration Options
-- Environment variables:
-    - `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, etc
-- Global: `torch.set_num_threads`
-- Context manager: `threadpoolctl` (BLAS and OpenMP)
-- Call-site parameters: `n_jobs`, `worker`
-]
-.g-3[
-![:scale 100%](images/plane.jpg)
-]
-]
-
----
-
-.g[
-.g-9[
-# Implementation Options
-- Python Multiprocessing and Multithreading
-- Native threads: `OpenMP`, `pthreads`, Intel TBB
-- **BLAS**: Implemented with native threads
-]
-.g-3[
-![:scale 100%](images/tools.jpg)
-]
-]
-
-
----
-
 class: chapter-slide
 
 # Is there a problem here? 🤔
@@ -806,31 +763,61 @@ Sources: [polars](https://pola-rs.github.io/polars-book/user-guide/howcani/multi
 
 ---
 
+# Conclusion
+.g[
+.g-6.center[
+## Configuration
+![:scale 90%](images/plane.jpg)
+]
+.g-6.center[
+## Implementation
+![:scale 90%](images/tools.jpg)
+]
+]
+
+---
+
+.g[
+.g-9[
+# Configuration Options
+- Environment variables:
+    - `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, etc
+- Global: `torch.set_num_threads`
+- Context manager: `threadpoolctl` (BLAS and OpenMP)
+- Call-site parameters: `n_jobs`, `worker`
+]
+.g-3[
+![:scale 100%](images/plane.jpg)
+]
+]
+
+---
+
+.g[
+.g-9[
+# Implementation Options
+- Python Multiprocessing and Multithreading
+- Native threads: `OpenMP`, `pthreads`, Intel TBB
+- **BLAS**: Implemented with native threads
+]
+.g-3[
+![:scale 100%](images/tools.jpg)
+]
+]
+
+
+---
+
 class: center
 
 # Parallelism in Numerical Python Libraries
-
-.g.g-center[
-.g-2[
-<!--  -->
-]
-.g-4[
-## Configuration
-![:scale 50%](images/plane.jpg)
-]
-.g-4[
-## Implementation
-![:scale 50%](images/tools.jpg)
-]
-.g-2[
-<!--  -->
-]
-]
 
 .larger[Thomas J. Fan]<br>
 @thomasjpfan<br>
 <a href="https://www.github.com/thomasjpfan" target="_blank"><span class="icon icon-github icon-left"></span></a>
 <a href="https://www.twitter.com/thomasjpfan" target="_blank"><span class="icon icon-twitter"></span></a>
+
+![:scale 30%](images/labs-logo.jpg)
 
 <a class="this-talk-link", href="https://github.com/thomasjpfan/pydata-nyc-2022-parallelism" target="_blank">
 This talk on Github: thomasjpfan/pydata-nyc-2022-parallelism</a>
