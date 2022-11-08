@@ -247,7 +247,6 @@ class: chapter-slide
 .g-8[
 ## Configuration
 - `OMP_NUM_THREADS` or `MKL_NUM_THREADS`
-- `threadpoolctl`
 - `torch.set_num_threads`
 ]
 .g-4[
