@@ -494,7 +494,7 @@ class: top
 
 ![](images/polars.svg)
 
-- **Use all cores by default**
+- **Parallel by default**
 - Uses `pthreads` with rust library: `rayon-rs/rayon`
 - Environment variable: `POLARS_MAX_THREADS`
 
@@ -516,8 +516,8 @@ class: center
 .g-8[
 - Python Multithreading
 - Python Multiprocessing (with `loky` backend)
-- OpenMP routines (**All cores by default**)
-- Inherits `linalg` BLAS semantics from NumPy and SciPy (**All cores by default**)
+- OpenMP routines (**Parallel by default**)
+- Inherits `linalg` BLAS semantics from NumPy and SciPy (**Parallel by default**)
 ]
 .g-4[
 ![:scale 100%](images/scikit-learn-logo-without-subtitle.svg)
@@ -606,7 +606,7 @@ class: top
 # Parallelism in scikit-learn  🖥
 ## OpenMP
 
-- **All cores by default**
+- **Parallel by default**
 
 --
 
