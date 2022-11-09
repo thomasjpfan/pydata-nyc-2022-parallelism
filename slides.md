@@ -562,7 +562,7 @@ class: top, top-5
 - `n_jobs` parameter
 
 ```python
-from sklearn.experimental import enable_halving_search_cv # noqa
+from sklearn.experimental import enable_halving_search_cv
 from sklearn.model_selection import HalvingRandomSearchCV
 
 *halving = HalvingGridSearchCV(..., n_jobs=4)
@@ -639,21 +639,26 @@ class: top
 ![](images/joblib_logo.svg)
 ]
 ]
+
 ---
+
+class: top-5, top
 
 # Scikit-learn Avoiding Oversubscription Example
 
 ```python
-from sklearn.experimental import enable_halving_search_cv  # noqa
+from sklearn.experimental import enable_halving_search_cv
 from sklearn.model_selection import HalvingGridSearchCV
 from sklearn.ensemble import HistGradientBoostingClassifier
 
-clf = HistGradientBoostingClassifier()  # OpenMP
-*gsh = HalvingGridSearchCV(
+*clf = HistGradientBoostingClassifier()  # OpenMP
+gsh = HalvingGridSearchCV(
     estimator=clf, param_grid=param_grid,
 *   n_jobs=n_jobs  # loky
 )
 ```
+
+--
 
 ## Timing the search ⏰
 
