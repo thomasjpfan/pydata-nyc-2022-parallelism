@@ -659,10 +659,10 @@ from sklearn.experimental import enable_halving_search_cv  # noqa
 from sklearn.model_selection import HalvingGridSearchCV
 from sklearn.ensemble import HistGradientBoostingClassifier
 
-clf = HistGradientBoostingClassifier()
+clf = HistGradientBoostingClassifier()  # OpenMP
 *gsh = HalvingGridSearchCV(
     estimator=clf, param_grid=param_grid,
-*   n_jobs=n_jobs
+*   n_jobs=n_jobs  # loky
 )
 ```
 
