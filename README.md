@@ -1,4 +1,4 @@
-# Parallelism in Python NumLibraries
+# Parallelism in Numerical Python Libraries
 
 [Link to slides](https://thomasjpfan.github.io/pydata-nyc-2022-parallelism)
 
